@@ -1,0 +1,31 @@
+{
+  "devDependencies": {
+    "morgan": "^1.10.0"
+  },
+  "name": "dialy",
+  "description": "Web about spatial data",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "debug": "^2.6.9",
+    "basic-auth": "^2.0.1",
+    "on-finished": "^2.3.0",
+    "ms": "^2.0.0",
+    "ee-first": "^1.1.1",
+    "on-headers": "^1.0.2",
+    "safe-buffer": "^5.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luciferanh/HTTT_3D.git"
+  },
+  "author": "Viet Anh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luciferanh/HTTT_3D/issues"
+  },
+  "homepage": "https://github.com/luciferanh/HTTT_3D#readme"
+}
