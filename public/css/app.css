@@ -1,0 +1,18 @@
+#flex-container {
+  display: flex;
+  justify-content: flex-start;
+  height: 200px; }
+
+.Slide_Fix {
+  width: 20%; }
+
+.RanhGioi {
+  width: 0.1%;
+  background-color: #c2b5b5; }
+
+.thuoctinh3 {
+  width: 100%; }
+
+.FormInput {
+  height: 40px;
+  border-bottom: 2px solid #c5c5bd; }
