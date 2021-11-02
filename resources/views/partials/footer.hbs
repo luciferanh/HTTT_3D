@@ -17,10 +17,11 @@ const myChart = new Chart(ctx, {
 <script >
     $(document).ready(function(){
   
-  $("#mySubmit").click(function(){
-
+  $("#mySubmit").click(function(e){
+        e.preventDefault()
         value=$("#myInput").val();
         Select_Item = $("#Select_Item").val();
+
 
         switch (Select_Item) {
             case "1":{
@@ -31,7 +32,8 @@ const myChart = new Chart(ctx, {
                         x: value[1],
                         y: value[3]
                     },
-                    success: function(msg) {
+                    dataType: "application/json",
+                    success: function(data, status, jqXHR) {
                         alert('Email Sent');
                     },
                     error: function(msg){

@@ -3,7 +3,7 @@ class HomeController{
         res.render('home');
     }
     store(req,res){
-            console.log('CCCCCCCCCCCCCCCCC');
+            console.log(req.body);
         res.render('home');
     }
 }
