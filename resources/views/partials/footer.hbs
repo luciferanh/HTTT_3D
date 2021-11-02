@@ -19,11 +19,30 @@ const myChart = new Chart(ctx, {
   
   $("#mySubmit").click(function(){
 
-      value=$("#myInput").val();
-      
-      $(".List_DS").prepend("<li>"+value+"</li>");
+        value=$("#myInput").val();
+        Select_Item = $("#Select_Item").val();
+
+        switch (Select_Item) {
+            case "1":{
+                 $.ajax({
+                    url: '/store',
+                    type: 'POST',
+                    data: {
+                        x: value[1],
+                        y: value[3]
+                    },
+                    success: function(msg) {
+                        alert('Email Sent');
+                    },
+                    error: function(msg){
+                        console.log(msg);
+                    }               
+                });
+            }
+        }
+        $(".List_DS").prepend("<li>"+value+"</li>");
         ctx.arc(100, 75, 50, 0, 2 * Math.PI);
-         ctx.stroke();
+        ctx.stroke();
   });
 
 });
