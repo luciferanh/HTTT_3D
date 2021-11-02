@@ -2253,6 +2253,14 @@
   dependencies:
     "tslib" "^1.9.3"
 
+"msnodesqlv8@^2.4.1":
+  "integrity" "sha512-FtQpQBXv0cOrHK7kPZZLJwX1AwfL4lnfBVKE1VBLbdJDgleh+cKmKJumiXdFwM/M6IMC8vUf0ZOhAPjaNveXyg=="
+  "resolved" "https://registry.npmjs.org/msnodesqlv8/-/msnodesqlv8-2.4.1.tgz"
+  "version" "2.4.1"
+  dependencies:
+    "nan" "^2.15.0"
+    "prebuild-install" "^6.1.4"
+
 "mssql@^7.2.1":
   "integrity" "sha512-kq0hVeD1tR+ikZqmLwgQqLGSavOhrrwaiYsYxdUQASifc3oIOFRx2IHpuWk+8oLI6Ab/s3o3JfpFX1v1Nf2sxA=="
   "resolved" "https://registry.npmjs.org/mssql/-/mssql-7.2.1.tgz"
@@ -2264,7 +2272,7 @@
     "tarn" "^3.0.1"
     "tedious" "^11.4.0"
 
-"nan@^2.13.2":
+"nan@^2.13.2", "nan@^2.15.0":
   "integrity" "sha512-8ZtvEnA2c5aYCZYd1cvgdnU6cqwixRoYg70xPLWUws5ORTa/lnw+u4amixRS/Ac5U5mQVgp9pnlSUnbNWFaWZQ=="
   "resolved" "https://registry.npmjs.org/nan/-/nan-2.15.0.tgz"
   "version" "2.15.0"
@@ -2638,7 +2646,7 @@
   "resolved" "https://registry.npmjs.org/pify/-/pify-3.0.0.tgz"
   "version" "3.0.0"
 
-"prebuild-install@^6.0.0":
+"prebuild-install@^6.0.0", "prebuild-install@^6.1.4":
   "integrity" "sha512-Z4vpywnK1lBg+zdPCVCsKq0xO66eEV9rWo2zrROGGiRS4JtueBOdlB1FnY8lcy7JsUud/Q3ijUxyWN26Ika0vQ=="
   "resolved" "https://registry.npmjs.org/prebuild-install/-/prebuild-install-6.1.4.tgz"
   "version" "6.1.4"
