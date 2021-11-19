@@ -1,4 +1,13 @@
-
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
 $(document).ready(function(){
   
     $("#mySubmit").click(function(e){
@@ -27,7 +36,8 @@ $(document).ready(function(){
               }
           }
           $(".List_DS").prepend("<li>"+value+"</li>");
-
+          ctx.arc(100, 75, 50, 0, 2 * Math.PI);
+          ctx.stroke();
     });
   
   });
