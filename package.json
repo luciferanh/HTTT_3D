@@ -13,6 +13,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "basic-auth": "^2.0.1",
     "debug": "^2.6.9",
     "ee-first": "^1.1.1",

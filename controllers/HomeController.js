@@ -8,5 +8,8 @@ class HomeController{
             sql.getdata();
         res.render('home');
     }
+    login(req,res){
+        res.render('user/login');
+    }
 }
 module.exports =new HomeController;

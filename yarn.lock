@@ -215,6 +215,11 @@
     "chalk" "^2.0.0"
     "js-tokens" "^4.0.0"
 
+"@fortawesome/fontawesome-free@^5.15.4":
+  "integrity" "sha512-eYm8vijH/hpzr/6/1CJ/V/Eb1xQFW2nnUKArb3z+yUWv7HTwj6M7SP957oMjfZjAHU6qpoNc2wQvIxBLWYa/Jg=="
+  "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-5.15.4.tgz"
+  "version" "5.15.4"
+
 "@js-joda/core@^3.2.0":
   "integrity" "sha512-PMqgJ0sw5B7FKb2d5bWYIoxjri+QlW/Pys7+Rw82jSH0QN3rB05jZ/VrrsUdh1w4+i2kw9JOejXGq/KhDOX7Kg=="
   "resolved" "https://registry.npmjs.org/@js-joda/core/-/core-3.2.0.tgz"
