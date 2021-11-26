@@ -86,14 +86,14 @@ ul li.checked::before {
 }
 
 .close:hover {
-  background-color: #CC3366;
+  
   color: white;
 }
 
 /* Style the header */
 .header_r {
-  background-color: #CC3366;
-  padding: 30px 40px;
+
+  padding: 20px 40px;
   color: white;
   text-align: center;
 }
@@ -132,4 +132,8 @@ input {
 
 .addBtn:hover {
   background-color: #bbb;
+}
+#map{
+  position: absolute;
+  top:0; bottom:0; left:0; right:0;
 }

@@ -1,2 +1,21 @@
+<div class="container">
+<canvas id="canvas" >
 
-    <script src="./js/Display.js"></script>
+</canvas>
+</div>
+<script>
+    var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d");
+
+canvas.width = 1000;
+canvas.height = 1000;
+
+
+var background = new Image();
+background.src = "https://farm1.staticflickr.com/859/43939595761_e51c99c4ac_b.jpg";
+
+// Make sure the image is loaded first otherwise nothing will draw.
+background.onload = function(){
+    ctx.drawImage(background,0,0);   
+}
+</script>
