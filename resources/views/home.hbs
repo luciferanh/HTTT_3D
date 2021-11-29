@@ -1,33 +1,45 @@
  <div id="map"></div>
 <script>
-var mymap = L.map('map').setView([51.505, -0.09], 13);
-L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=sk.eyJ1IjoidmlldGFuaDIzOSIsImEiOiJja3dnMjBmY2kwa2xpMnZxdnplMHcwb3FhIn0.fP74UEmHDWFWoPJVvSmNxg', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 500,
-    zoomOffset: -1,
-    accessToken: 'your.mapbox.access.token'
-}).addTo(mymap);
-var marker = L.marker([51.5, -0.09]).addTo(mymap);
-var circle = L.circle([51.508, -0.11], {
-    color: 'red',
-    fillColor: '#000',
-    fillOpacity: 0.5,
-    radius: 500
-}).addTo(mymap);
-var polygon = L.polygon([
-    [51.509, -0.08],
-    [51.503, -0.06],
-    [51.51, -0.047]
-]).addTo(mymap);
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-circle.bindPopup("I am a circle.");
-polygon.bindPopup("I am a polygon.");
-var popup = L.popup()
-    .setLatLng([51.5, -0.09])
-    .setContent("I am a standalone popup.")
-    .openOn(mymap);
 
+        var mapObj = null;
+        var defaultCoord = [10.869596, 106.803244]; // coord mặc định, UIT
+        var zoomLevel = 16; // Mức phóng to bản đồ
+        var mapConfig = {
+            attributionControl: false, // để ko hiện watermark nữa, nếu bị liên hệ đòi thì nhớ open nha
+            center: defaultCoord, // vị trí map mặc định hiện tại
+            zoom: zoomLevel,
+        };
 
+        mapObj = L.map('map', mapConfig);
+
+        // thêm tile để map có thể hoạt động, xài free từ OSM
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(mapObj);
+
+        // Add custom marker
+        var marker_coord = [10.869596, 106.803244]; // Toạ độ marker
+        var popup_option = {
+            className: "map-popup-content",
+        };
+        // html cho popup
+        var popup_content = `<div class='left'>
+                                <img src='https://img.pixers.pics/pho(s3:700/PI/23/27/700_PI2327_65c65c262917a837fe5b7240420e1ab4_5b7ab916358ae_.,700,700,jpg)/posters-hello-kitty.jpg.jpg' />
+                            </div>
+                            <div class='right'>
+                                <b>Sudo - OpenStreetMap</b><br>Việt Anh đẹp trai
+                            </div>
+                            <div class='clearfix'></div>`;
+
+        var popup = L.popup(popup_option);
+        popup.setContent(popup_content);
+
+        var marker = L.marker(marker_coord).addTo(mapObj);
+        // binding popup vào marker
+        marker.bindPopup(popup);
+ function onMapClick(e) {
+  alert("You clicked the map at " + e.latlng);
+}
+
+mapObj.on('click', onMapClick);
 </script>
