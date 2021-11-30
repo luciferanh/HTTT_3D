@@ -1,7 +1,7 @@
 class UserController {
 
     login(req, res) {
-        res.render('user/auth');
+        res.render('user/login');
     }
 }
 module.exports = new UserController;
