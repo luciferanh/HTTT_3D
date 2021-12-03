@@ -35,6 +35,64 @@
         var marker = L.marker(marker_coord).addTo(mapObj);
         // binding popup vào marker
         marker.bindPopup(popup);
+// Test ca dương tính 
+var Duongtinh1 = [10.869948, 106.796439]; // Toạ độ marker
+var Duongtinh1_option = {
+    className: "map-popup-content",
+};
+// html cho popup
+    var Duongtinh1_content = `<div class='left'>
+                            <img src='https://upload.wikimedia.org/wikipedia/vi/2/28/Bloom.png' />
+                        </div>
+                        <div class='right'>
+                            <b>Ca thứ xx</b><br>Dương tính 1
+                        </div>
+                        <div class='clearfix'></div>`;
+
+    var popup = L.popup(Duongtinh1_option);
+    popup.setContent(Duongtinh1_content);
+    var greenIcon = new L.Icon({
+        iconUrl: 'img/icon/duongtinh.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+    var marker = L.marker(Duongtinh1,{
+        icon: greenIcon}
+    ).addTo(mapObj);
+    // binding popup vào marker
+    marker.bindPopup(popup);
+
+    var Duongtinh2 = [10.874842, 106.798475]; // Toạ độ marker
+    var Duongtinh2_option = {
+        className: "map-popup-content",
+    };
+    // html cho popup
+        var Duongtinh2_content = `<div class='left'>
+                                <img src='https://upload.wikimedia.org/wikipedia/vi/2/28/Bloom.png' />
+                            </div>
+                            <div class='right'>
+                                <b>Ca thứ xx</b><br>Dương tính 2
+                            </div>
+                            <div class='clearfix'></div>`;
+    
+        var popup = L.popup(Duongtinh2_option);
+        popup.setContent(Duongtinh2_content);
+        var greenIcon = new L.Icon({
+            iconUrl: 'img/icon/duongtinh.png',
+            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41]
+          });
+        var marker = L.marker(Duongtinh2,{
+            icon: greenIcon}
+        ).addTo(mapObj);
+        // binding popup vào marker
+        marker.bindPopup(popup);
  function onMapClick(e) {
   alert("You clicked the map at " + e.latlng);
 }
