@@ -374,3 +374,76 @@ input {
 	.active .menu-icon {
 		color: #03A9F4;
 	}
+.toggle {
+
+	height: 17px;
+	
+	float: left;
+	width: 30px;
+	}
+.toggle input[type="checkbox"] {
+	display: none;
+}
+.toggle .slider {
+	background-color: #ccc;
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	transition: .4s;
+	position: relative;
+	border-radius: 50px;
+}
+.toggle .slider:before {
+	background-color: #fff;
+	bottom: 2px;
+	content: "";
+	height: 13px;
+	left: 2px;
+	position: absolute;
+	transition: .4s;
+	width: 13px;
+	border-radius: 50px;
+}
+.toggle input[type="checkbox"]:checked + .slider {
+background-color: #07a787;
+}
+.toggle input[type="checkbox"]:checked + .slider:before {
+transform: translateX(13px);
+}
+
+.toggle_benhvien {
+
+	height: 17px;
+	
+	float: left;
+	width: 30px;
+	}
+.toggle_benhvien input[type="checkbox"] {
+	display: none;
+}
+.toggle_benhvien .slider_benhvien {
+	background-color: #ccc;
+	cursor: pointer;
+	width: 100%;
+	height: 100%;
+	transition: .4s;
+	position: relative;
+	border-radius: 50px;
+}
+.toggle_benhvien .slider_benhvien:before {
+	background-color: #fff;
+	bottom: 2px;
+	content: "";
+	height: 13px;
+	left: 2px;
+	position: absolute;
+	transition: .4s;
+	width: 13px;
+	border-radius: 50px;
+}
+.toggle_benhvien input[type="checkbox"]:checked + .slider_benhvien {
+background-color: #07a787;
+}
+.toggle_benhvien input[type="checkbox"]:checked + .slider_benhvien:before {
+transform: translateX(13px);
+}

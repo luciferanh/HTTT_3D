@@ -33,23 +33,35 @@
             </ul>
             </nav>
         </div>
-        <div class="col">
-            <br>
+        
+        <div class="col-md-auto">
+           
                     <!-- Default checkbox -->
               <div class="form-check">
                   &nbsp;
-                <input class="form-check-input"     type="checkbox"     value=""   id="flexCheckChecked"   />
-                <i class="bi bi-person " ></i>&nbsp;
-                <label class="form-check-label" for="flexCheckChecked">Hộ Dương tính</label>
-            </div>
-             <br>
+                    <div class="row">
+                            <div class="col-md-auto">
+                                <label class="toggle" for="toggle">
+                                    <input type="checkbox" id="toggle" name="duongtinh" onclick="CheckDuongtinh()">
+                                    <div class="slider"> </div>
+                                </label>
+                            </div>
+                            <div class="col-md-auto"> Ca dương tính</div>
+                    </div>
+                    <br>
+                    <div class="row">
+                            <div class="col-md-auto">
+                                <label class="toggle_benhvien" for="toggle_benhvien">
+                                    <input type="checkbox" id="toggle_benhvien">
+                                    <div class="slider_benhvien"> </div>
+                                </label>
+                            </div>
+                            <div class="col-md-auto"> Bệnh viện</div>
+                    </div>
+                </div>
+             
              <!-- Checked checkbox -->
-            <div class="form-check">
-              
-                <input class="form-check-input"     type="checkbox"     value=""   id="flexCheckChecked"   />
-                 &nbsp; <i class="bi bi-shield-fill-check " ></i>&nbsp;
-                <label class="form-check-label" for="flexCheckChecked">Bệnh viện</label>
-            </div>
+           
         </div>
     </div>
 
