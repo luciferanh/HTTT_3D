@@ -1,24 +1,19 @@
-
+import sql from "../config/database.js"
+sql.getdata();
 var mapObj = null;
 //--------------------------------Layer Map---------------------------------------------
-var grayscale =L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}),
-    streets   = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'});
+var     streets   = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { id: 'MapID', attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'});
     
 
 var defaultCoord = [10.869596, 106.803244]; // coord mặc định, UIT
 var zoomLevel = 16; // Mức phóng to bản đồ
 
-
-var baseMaps = {
-    "Grayscale": grayscale,
-    "Streets": streets
-};
 //---------------------------------------------------------------------------------------------------------------------
 
 //--------------------------------Marker ---------------------------------------------
 var fg = L.featureGroup();
 var array_duongtinh= [[10.869948, 106.796439],[10.874842, 106.798475]];
-var layers= L.layerGroup()
+var layers_array= [];
 
 for (let index = 0; index < array_duongtinh.length; index++) {
     const element = array_duongtinh[index];
@@ -49,35 +44,35 @@ for (let index = 0; index < array_duongtinh.length; index++) {
         icon: Icon}
     );
     marker.bindPopup(popup);
-    marker.addTo(fg);
-    layers.addLayer(fg);
+ 
+    layers_array.push(marker);
     
     // binding popup vào marker
     
     
 }
 //-----------------------------------------------------------------------------------------------------------
-
+var duongtinh = L.layerGroup(layers_array);
 var mapConfig = {
-    attributionControl: false, // để ko hiện watermark nữa, nếu bị liên hệ đòi thì nhớ open nha
+    attributionControl: true, // để ko hiện watermark nữa, nếu bị liên hệ đòi thì nhớ open nha
     center: defaultCoord, // vị trí map mặc định hiện tại
     zoom: zoomLevel,
-    layers: [grayscale, layers]
+    layers: [streets, duongtinh]
 };
 
 mapObj = L.map('map', mapConfig);
+
+// var baseMaps = {
+//     "Streets": streets
+// };
+
 var overlayMaps = {
-    "Ca dương tính": layers
-};
+  
+    "<img src='img/icon/duongtinh.png' /><span class='my-layer-item'>Ca F0</span>":duongtinh
 
-L.control.layers(baseMaps, overlayMaps).addTo(mapObj);
-var baseMaps = {
-    "<span style='color: gray'>Grayscale</span>": grayscale,
-    "Streets": layers
-};
+}
 
-// thêm tile để map có thể hoạt động, xài free từ OSM
-
+L.control.layers( [], overlayMaps,).addTo(mapObj);
 
 // // Add custom marker
 // var marker_coord = [10.869596, 106.803244]; // Toạ độ marker
