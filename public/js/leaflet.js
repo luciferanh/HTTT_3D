@@ -1,5 +1,4 @@
-import sql from "../config/database.js"
-sql.getdata();
+
 var mapObj = null;
 //--------------------------------Layer Map---------------------------------------------
 var     streets   = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', { id: 'MapID', attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'});
