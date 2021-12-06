@@ -80,43 +80,25 @@ $.get("/store", function(data) {
 
     L.control.layers( [], overlayMaps,).addTo(mapObj);
 
-    // // Add custom marker
-    // var marker_coord = [10.869596, 106.803244]; // Toạ độ marker
-  
-    // // html cho popup
-    // var popup_content = `<div class='left'>
-    //                         <img src='https://img.pixers.pics/pho(s3:700/PI/23/27/700_PI2327_65c65c262917a837fe5b7240420e1ab4_5b7ab916358ae_.,700,700,jpg)/posters-hello-kitty.jpg.jpg' />
-    //                     </div>
-    //                     <div class='right'>
-    //                         <b>Sudo - OpenStreetMap</b><br>Việt Anh đẹp trai
-    //                     </div>
-    //                     <div class='clearfix'></div>`;
 
-    // var popup = L.popup(popup_option);
-    // popup.setContent(popup_content);
-
-    // var marker = L.marker(marker_coord).addTo(mapObj);
-    // // binding popup vào marker
-    // marker.bindPopup(popup);
-   // add marker on click
    mapObj.on("click", addMarker);
 
     function addMarker(e) {
-    // Add marker to map at click location
-    const markerPlace = document.querySelector(".marker-position");
-    markerPlace.textContent = `new marker: ${e.latlng.lat}, ${e.latlng.lng}`;
+        // Add marker to map at click location
+        const markerPlace = document.querySelector(".marker-position");
+        markerPlace.textContent = `new marker: ${e.latlng.lat}, ${e.latlng.lng}`;
 
-    const markerClick = new L.marker(e.latlng, {
-        draggable: true
-    })
-        .addTo(mapObj)
-        .bindPopup(buttonRemove);
+        const markerClick = new L.marker(e.latlng, {
+            draggable: true
+        })
+            .addTo(mapObj)
+            .bindPopup(buttonRemove);
 
-    // event remove marker
-    markerClick.on("popupopen", removeMarker);
+        // event remove marker
+        markerClick.on("popupopen", removeMarker);
 
-    // event draged marker
-    markerClick.on("dragend", dragedMaker);
+        // event draged marker
+        markerClick.on("dragend", dragedMaker);
     }
 
     const buttonRemove =
@@ -124,21 +106,21 @@ $.get("/store", function(data) {
 
     // remove marker
     function removeMarker() {
-    const marker = this;
-    const btn = document.querySelector(".remove");
-    btn.addEventListener("click", function () {
-        const markerPlace = document.querySelector(".marker-position");
-        markerPlace.textContent = "goodbye marker 💩";
-        mapObj.removeLayer(marker);
-    });
-    }
+        const marker = this;
+        const btn = document.querySelector(".remove");
+        btn.addEventListener("click", function () {
+            const markerPlace = document.querySelector(".marker-position");
+            markerPlace.textContent = "goodbye marker 💩";
+            mapObj.removeLayer(marker);
+        });
+        }
 
-    // draged
-    function dragedMaker() {
-    const markerPlace = document.querySelector(".marker-position");
-    markerPlace.textContent = `change position: ${this.getLatLng().lat}, ${
-        this.getLatLng().lng
-    }`;
+        // draged
+        function dragedMaker() {
+        const markerPlace = document.querySelector(".marker-position");
+        markerPlace.textContent = `change position: ${this.getLatLng().lat}, ${
+            this.getLatLng().lng
+        }`;
     }
 
 
