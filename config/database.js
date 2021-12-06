@@ -4,7 +4,7 @@ const config = {
     user: "sa",
     password: "123456",
     //server: "DESKTOP-OT7KKUK" ,
-    server: "DESKTOP-I7P0VBM" ,// An
+    server: "DESKTOP-I7P0VBM\\SQLEXPRESS" ,// An
     database: "dialy",
     driver:"msnodesqlv8",
     options: {
