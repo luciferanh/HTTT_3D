@@ -15,15 +15,27 @@ const config = {
  
 };
 
-async function getdata(){
-    try{
-        const conn = new sql.ConnectionPool(config).connect();
-        console.log("SQL connected");
-    } catch(err){
-        console.log(err);
-    }
+ function getdataHoDuongTinh(){
+    sql.connect(config, function (err) {
+    
+        if (err) console.log(err);
+
+        // create Request object
+        var request = new sql.Request();
+           
+        // query to the database and get the records
+        request.query('select * from HoDuongTinh', function (err, recordset) {
+            
+            if (err) console.log(err)
+
+            // send records as a response
+            
+            return recordset;
+            
+        });
+    });
 }
   module.exports = {
-      getdata: getdata,
+    getdataHoDuongTinh: getdataHoDuongTinh,
   };
   
