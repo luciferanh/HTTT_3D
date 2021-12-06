@@ -16,8 +16,12 @@ $.get("/store", function(data) {
     var fg = L.featureGroup();
     var array_duongtinh= [[10.869948, 106.796439],[10.874842, 106.798475]];
     var layers_array= [];
-
+    if ( DatabaseDT.length==0) {
+        console.log("Vẫn chưa connect sql");
+        DatabaseDT=array_duongtinh;
+    }
     for (let index = 0; index < DatabaseDT.length; index++) {
+        
           const element = [DatabaseDT[index].x,DatabaseDT[index].y];
         var Duongtinh = element; // Toạ độ marker
         var option = {
@@ -78,9 +82,7 @@ $.get("/store", function(data) {
 
     // // Add custom marker
     // var marker_coord = [10.869596, 106.803244]; // Toạ độ marker
-    // var popup_option = {
-    //     className: "map-popup-content",
-    // };
+  
     // // html cho popup
     // var popup_content = `<div class='left'>
     //                         <img src='https://img.pixers.pics/pho(s3:700/PI/23/27/700_PI2327_65c65c262917a837fe5b7240420e1ab4_5b7ab916358ae_.,700,700,jpg)/posters-hello-kitty.jpg.jpg' />
@@ -96,14 +98,48 @@ $.get("/store", function(data) {
     // var marker = L.marker(marker_coord).addTo(mapObj);
     // // binding popup vào marker
     // marker.bindPopup(popup);
-    function onMapClick(e) {
-        alert("You clicked the map at " + e.latlng);
-      }
-      
-      mapObj.on('click', onMapClick);
+   // add marker on click
+   mapObj.on("click", addMarker);
 
+    function addMarker(e) {
+    // Add marker to map at click location
+    const markerPlace = document.querySelector(".marker-position");
+    markerPlace.textContent = `new marker: ${e.latlng.lat}, ${e.latlng.lng}`;
 
+    const markerClick = new L.marker(e.latlng, {
+        draggable: true
+    })
+        .addTo(mapObj)
+        .bindPopup(buttonRemove);
 
+    // event remove marker
+    markerClick.on("popupopen", removeMarker);
+
+    // event draged marker
+    markerClick.on("dragend", dragedMaker);
+    }
+
+    const buttonRemove =
+    '<button type="button" class="remove">Xóa địa chỉ 💔</button>';
+
+    // remove marker
+    function removeMarker() {
+    const marker = this;
+    const btn = document.querySelector(".remove");
+    btn.addEventListener("click", function () {
+        const markerPlace = document.querySelector(".marker-position");
+        markerPlace.textContent = "goodbye marker 💩";
+        mapObj.removeLayer(marker);
+    });
+    }
+
+    // draged
+    function dragedMaker() {
+    const markerPlace = document.querySelector(".marker-position");
+    markerPlace.textContent = `change position: ${this.getLatLng().lat}, ${
+        this.getLatLng().lng
+    }`;
+    }
 
 
 });
