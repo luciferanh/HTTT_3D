@@ -1,12 +1,4 @@
-// function getstore(url) {
-//     var result;
-//     $.get(url, function(data){
-//         result = data;
-//     });
-//     return result;
-// }
-// var a=getstore("/store");
-// console.log(a);
+
 $.get("/store", function(data) {
     DatabaseDT= Object.values(data)[1];
 
@@ -21,13 +13,10 @@ $.get("/store", function(data) {
     //---------------------------------------------------------------------------------------------------------------------
 
     //--------------------------------Marker ---------------------------------------------
-    var fg = L.featureGroup();
-    var array_duongtinh= [[10.869948, 106.796439],[10.874842, 106.798475]];
+
+
     var layers_array= [];
-    if ( DatabaseDT.length==0) {
-        console.log("Vẫn chưa connect sql");
-        DatabaseDT=array_duongtinh;
-    }
+  
     for (let index = 0; index < DatabaseDT.length; index++) {
         
           const element = [DatabaseDT[index].x,DatabaseDT[index].y];
