@@ -7,8 +7,6 @@ class HomeController {
     store(req, res) {
         console.log("dang store");
         database.getdataHoDuongTinh(res);
-
-       
     }
     phongtoa(req, res){
         res.render('phongtoa');
