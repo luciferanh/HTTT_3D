@@ -29,10 +29,10 @@ $.get("/store", function(data) {
         };
     // html cho popup
         var content = `<div class='left'>
-                                <img src='https://upload.wikimedia.org/wikipedia/vi/2/28/Bloom.png' />
+                                <img src='https://tse1.mm.bing.net/th?id=OIP.3dDSNCoBmkd2mutd09WJwwHaHa&pid=Api' />
                             </div>
                             <div class='right'>
-                                <b>Ca thứ xx</b><br>Dương tính `+index+`
+                                <b>Ca thứ `+index+`</b><br>Dương tính 
                             </div>
                             <div class='clearfix'></div>`;
 
@@ -123,7 +123,22 @@ $.get("/store", function(data) {
         }`;
     }
 
-
+    //Dữ liệu vùng phong tỏa
+    var uitData = {"type":"FeatureCollection","features":[
+        {"type":"Feature","id":"01","properties":{"name":"Alabama","f0":5},
+        "geometry":{"type":"Polygon","coordinates":[[[10.873121519134497, 106.76519923502337],[10.867755018746509, 106.78187370300294],[10.86696830050258, 106.78991662007813],[10.866125383959735, 106.79283464470265],[10.866125383959735, 106.79283464470265],[10.868654126446355, 106.8050479888916],[10.895766516859064, 106.82564811594017],[10.897564557967604, 106.82807933437194],[10.898379290522715, 106.82058448497408],[10.901076323145464, 106.81660652669402],[10.904672327750902, 106.80576550066722],[10.912594623849552, 106.79701142679365],[10.89295705636543, 106.79048878351531],[10.890512804916229, 106.78568262531023],[10.889332814277418, 106.77890250927089],[10.884444231832436, 106.77169327196326],[10.878712688207626, 106.76688711375813]]]}},]};
+    
+    // var mapboxAccessToken = {your access token here};
+    // var map = L.map('map').setView([37.8, -96], 4);
+    
+    // L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + mapboxAccessToken, {
+    //     id: 'mapbox/light-v9',
+    //     attribution: ...,
+    //     tileSize: 512,
+    //     zoomOffset: -1
+    // }).addTo(map);
+    
+    // L.geoJson(statesData).addTo(map);
 });
 
 
