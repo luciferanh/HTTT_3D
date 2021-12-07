@@ -1,4 +1,4 @@
-var statesData = {"type":"FeatureCollection","features":[
+var uitData = {"type":"FeatureCollection","features":[
     {"type":"Feature","id":"01","properties":{"name":"A0","f0":5},
     "geometry":{"type":"Polygon","coordinates":[[[10.873121519134497, 106.76519923502337],
     [10.867755018746509, 106.78187370300294],[10.86696830050258, 106.78991662007813],
