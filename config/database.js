@@ -29,7 +29,23 @@ const configAn = {
   },
 
 };
-connect_may= [configAnh,configAn]
+
+const configThanh = {
+  server:"localhost",
+  user: "sa",
+  password: "123456",
+
+  server: "DESKTOP-FLTD05G",
+  database: "dialy",
+  driver:"msnodesqlv8",
+  options: {
+    trustedconnection: true,
+    enableArithAbort: true,
+    instancename: "",
+  },
+
+};
+connect_may= [configAnh,configAn,configThanh]
  function getdataHoDuongTinh(res){
    for (let index = 0; index <connect_may.length;index++){
         sql.connect(connect_may[index], function (err) {
