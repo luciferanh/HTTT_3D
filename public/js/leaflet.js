@@ -1,4 +1,12 @@
-
+// function getstore(url) {
+//     var result;
+//     $.get(url, function(data){
+//         result = data;
+//     });
+//     return result;
+// }
+// var a=getstore("/store");
+// console.log(a);
 $.get("/store", function(data) {
     DatabaseDT= Object.values(data)[1];
 
