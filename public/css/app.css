@@ -1,15 +1,8 @@
 #flex-container {
   display: flex;
   justify-content: flex-start;
-  height: 530px }
+  height: 87vh }
 
-@media only screen and (max-width: 600px){
-	#fex-container, #fex-container{
-		display: flex;
-		justify-content: flex-start;
-		height: 800px;
-	}
-}
 .Slide_Fix {
   width: 15%; 
   height: 100%;
@@ -20,7 +13,8 @@
   background-color:cadetblue; }
 
 .thuoctinh3 {
-  width: 100%; 
+  width: 100%;
+  height: 100%; 
 }
 
 
@@ -126,7 +120,7 @@ input {
 
 #map {
   width: 100%;
-  height: 100%; }
+  height: 87vh; }
 
 .map-popup-content {
   width: 300px; }

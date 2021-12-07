@@ -21,7 +21,7 @@ create table HoDuongTinh (
 	x float,
 	y float,
 	DiaChi varchar(255),
-	NgayBiDuongTinh smalldatetime,
+	NgayBiDuongTinh datetime,
 	tinhtrang varchar(255),
     City varchar(255),
 	Toa_do geography ,
@@ -35,4 +35,9 @@ Create table User_Ho(
 )
 -- Thêm Nguoi Dung
 
-INSERT INTO 
+INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
+VALUES ( 1,'Alan','Le',0362791662,10.869948, 106.796439,'UIT',18/05/2020,'duong tinh','BINH DUONG',geography::Point(10.869948, 106.796439, 4326))
+
+INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
+VALUES ( 2,'Jonny','Dang',0123456789,10.874842, 106.798475,'USA',19/05/2020,'duong tinh','HOA KI',geography::Point(10.874842, 106.798475, 4326))
+

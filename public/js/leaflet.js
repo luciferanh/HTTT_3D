@@ -29,10 +29,10 @@ $.get("/store", function(data) {
         };
     // html cho popup
         var content = `<div class='left'>
-                                <img src='https://upload.wikimedia.org/wikipedia/vi/2/28/Bloom.png' />
+                                <img src='https://tse1.mm.bing.net/th?id=OIP.3dDSNCoBmkd2mutd09WJwwHaHa&pid=Api' />
                             </div>
                             <div class='right'>
-                                <b>Ca thứ xx</b><br>Dương tính `+index+`
+                                <b>Ca thứ `+index+`</b><br>Dương tính 
                             </div>
                             <div class='clearfix'></div>`;
 
@@ -110,7 +110,7 @@ $.get("/store", function(data) {
         const btn = document.querySelector(".remove");
         btn.addEventListener("click", function () {
             const markerPlace = document.querySelector(".marker-position");
-            markerPlace.textContent = "goodbye marker 💩";
+            markerPlace.textContent = "Goodbye marker 🌱";
             mapObj.removeLayer(marker);
         });
         }
@@ -122,8 +122,6 @@ $.get("/store", function(data) {
             this.getLatLng().lng
         }`;
     }
-
-
 });
 
 
