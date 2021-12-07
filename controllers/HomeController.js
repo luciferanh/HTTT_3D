@@ -3,7 +3,7 @@ const config = {
     server:"localhost",
     user: "sa",
     password: "123456",
-    server: "DESKTOP-OT7KKUK",
+    server: "DESKTOP-FLTD05G",
     database: "dialy",
     driver:"msnodesqlv8",
     options: {
@@ -27,7 +27,7 @@ class HomeController {
     
             // create Request object
             var request = new sql.Request();
-               
+            console.log("Conection");  
             // query to the database and get the records
             request.query('select * from HoDuongTinh', function (err, recordset) {
                 
