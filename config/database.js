@@ -3,8 +3,7 @@ const configAnh = {
     server:"localhost",
     user: "sa",
     password: "123456",
-    //server: "DESKTOP-OT7KKUK",
-    server: "DESKTOP-I7P0VBM\\SQLEXPRESS",//An
+    server: "DESKTOP-OT7KKUK",
     database: "dialy",
     driver:"msnodesqlv8",
     options: {
@@ -18,7 +17,7 @@ const configAn = {
   server:"localhost",
   user: "sa",
   password: "123456",
-  server: "DESKTOP-I7P0VBM\\SQLEXPRESS",//An
+  server: "DESKTOP-I7P0VBM\\SQLEXPRESS",
   database: "dialy",
   driver:"msnodesqlv8",
   options: {
