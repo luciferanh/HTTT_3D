@@ -6,12 +6,15 @@ class HomeController {
     }
     store(req, res) {
         console.log("dang store");
-        database.getdataHoDuongTinh(res);
+
+          database.getdataHoDuongTinh(res);
     }
     phongtoa(req, res){
         res.render('phongtoa');
     }
-
+    check_khoang_cach(req, res){
+        console.log(req);
+    }
 
 }
 module.exports = new HomeController;

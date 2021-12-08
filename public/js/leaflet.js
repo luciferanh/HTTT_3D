@@ -78,31 +78,43 @@ $.get("/store", function(data) {
     L.control.layers( [], overlayMaps,).addTo(mapObj);
 
 
+
+
+
+
+
+
+
+
+
+var x_new,y_new;
+
+
    mapObj.on("click", addMarker);
 
     function addMarker(e) {
         // Add marker to map at click location
         const markerPlace = document.querySelector(".marker-position");
         markerPlace.textContent = `new marker: ${e.latlng.lat}, ${e.latlng.lng}`;
-
+        x_new=e.latlng.lat,y_new=e.latlng.lng;
         const markerClick = new L.marker(e.latlng, {
             draggable: true
         })
             .addTo(mapObj)
-            .bindPopup(buttonRemove);
+            .bindPopup(FindDistance+buttonRemove);
 
         // event remove marker
-        markerClick.on("popupopen", removeMarker);
+        markerClick.on("popupopen", ClickMarker);
 
         // event draged marker
         markerClick.on("dragend", dragedMaker);
     }
-
+    const FindDistance =   '<button type="button" class="KT_KC">Kiểm tra khoảng cách 💔</button>';
     const buttonRemove =
-    '<button type="button" class="remove">Xóa địa chỉ 💔</button>';
+    '<button type="button" class="remove">Xóa</button>';
 
     // remove marker
-    function removeMarker() {
+    function ClickMarker() {
         const marker = this;
         const btn = document.querySelector(".remove");
         btn.addEventListener("click", function () {
@@ -110,6 +122,32 @@ $.get("/store", function(data) {
             markerPlace.textContent = "Goodbye marker 🌱";
             mapObj.removeLayer(marker);
         });
+        const btnClick = document.querySelector(".KT_KC");
+        btnClick.addEventListener("click", function(){
+      
+        
+            $.ajax({
+                type:'POST',
+                datatype:'JSON',
+                data:{
+                    x_new: x_new,
+                    y_new: y_new
+                },
+                url:'/',
+                success: function (result){
+              
+                    if(result.error==false){
+                        alert(result.message);
+                        console.log(result.data);
+                        location.reload();
+                    }else{
+                        alert("Xóa lỗi vui lòng thử lại");
+                    }
+                },
+
+            });
+        });
+
         }
 
         // draged

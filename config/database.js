@@ -43,29 +43,28 @@ const configThanh = {
   },
 
 };
-connect_may = [configAn, configAnh, configThanh]
+
 function getdataHoDuongTinh(res) {
-  for (let index = 0; index < connect_may.length; index++) {
-    sql.connect(connect_may[index], function (err) {
+ 
+    
+    sql.connect(configAnh, function (err) {
 
-      if (err) console.log(err);
+      if (err){
+        console.log(err);
+      } ;
 
-      // create Request object
       var request = new sql.Request();
 
       // query to the database and get the records
       request.query('select * from HoDuongTinh', function (err, recordset) {
-
+   
         if (err) console.log(err)
-
         // send records as a response
-        console.log(recordset);
-        res.json(recordset);
-
+       return  res.send(recordset);
 
       });
     });
-  }
+
 
 }
 module.exports = {
