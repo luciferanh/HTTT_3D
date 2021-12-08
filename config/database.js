@@ -69,7 +69,8 @@ function getdataHoDuongTinh(res) {
 }
 
 function tinhKC(res,x,y) {
-
+ //10.871409181506912 106.79884839227648
+  console.log(x,y);
   sql.connect(configAnh, function (err) {
 
     if (err){
@@ -93,7 +94,8 @@ function tinhKC(res,x,y) {
       console.log(recordset);
       
       // send records as a response
-     return res.send(recordset);
+      res.json(recordset);
+      return true;
 
     });
   });

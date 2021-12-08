@@ -127,7 +127,7 @@ var x_new,y_new;
       
         
             $.ajax({
-                type:'POST',
+                type:'GET',
                 datatype:'JSON',
                 data:{
                     x_new: x_new,
@@ -135,8 +135,8 @@ var x_new,y_new;
                 },
                 url:'/tinhtoan',
                 success: function (result){
-              
-                    if(result.error==false){
+                    console.log(result);
+                    if(result==false){
                   
                         console.log(result.data);
                         location.reload();

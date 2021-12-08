@@ -13,8 +13,9 @@ class HomeController {
         res.render('phongtoa');
     }
     check_khoang_cach(req, res){
-        console.log("check_khoang_cach");
-        database.tinhKC(res,req.body.x_new,req.body.y_new);
+        console.log("dang kc");
+        console.log(req.query.x_new, req.query.y_new);
+        database.tinhKC(res,req.query.x_new, req.query.y_new);
      
     }
 
