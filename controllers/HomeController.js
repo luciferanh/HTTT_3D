@@ -14,7 +14,7 @@ class HomeController {
     }
     check_khoang_cach(req, res){
         console.log("dang kc");
-        console.log(req.query.x_new, req.query.y_new);
+      console.log(req);
         database.tinhKC(res,req.query.x_new, req.query.y_new);
      
     }

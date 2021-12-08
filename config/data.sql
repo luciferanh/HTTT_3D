@@ -73,7 +73,6 @@ VALUES ( 20,'Vinh','Lam Van',0342791444,10.87039613572559, 106.76932847030895,'T
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
 VALUES ( 21,'Hoa','Le Thu',0122791333, 10.86879461065435, 106.77482250221561,'Thu Duc',20/05/2020,'duong tinh','BINH DUONG',geography::Point( 10.86879461065435, 106.77482250221561, 4326))
 
-// Nguoi bi duong tinh
 
 INSERT INTO Nguoi_dung ( ID,LastName,FirstName,MatKhau,SDT,x_diachi,y_diachi,DiaChi,tinhtrang,City,Toa_do) 
 VALUES ( 21,'Hoa','Le Thu','123456',0122791333, 10.86879461065435, 106.77482250221561,'Thu Duc','duong tinh','BINH DUONG',geography::Point( 10.86879461065435, 106.77482250221561, 4326))
@@ -83,3 +82,35 @@ VALUES ( 24,'Sang','Le Nguyen Phuc','234567',0362792555,10.869721810427496, 106.
 
 INSERT INTO Nguoi_dung ( ID,LastName,FirstName,MatKhau,SDT,x_diachi,y_diachi,DiaChi,tinhtrang,City,Toa_do) 
 VALUES (  18,'Hoa','Duong Thi','123456',0312791666,10.870227554543938, 106.79817236099483,'Thu Duc','duong tinh','BINH DUONG',geography::Point(10.870227554543938, 106.79817236099483, 4326))
+
+
+
+DECLARE @g geography; 
+SET @g = geography::Point(10.871409181506912, 106.79884839227648, 4326);
+
+SELECT TOP (5) H.ID,@g.STDistance(H.Toa_do) as KC
+FROM [HoDuongTinh] H
+ORDER BY KC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
