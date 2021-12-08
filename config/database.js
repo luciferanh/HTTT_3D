@@ -47,7 +47,7 @@ const configThanh = {
 function getdataHoDuongTinh(res) {
  
     
-    sql.connect(configAnh, function (err) {
+    sql.connect(configAn, function (err) {
 
       if (err){
         console.log(err);
