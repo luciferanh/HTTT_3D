@@ -18,7 +18,6 @@ const configAn = {
   server:"localhost",
   user: "sa",
   password: "123456",
-
   server: "DESKTOP-I7P0VBM\\SQLEXPRESS",//An
   database: "dialy",
   driver:"msnodesqlv8",
