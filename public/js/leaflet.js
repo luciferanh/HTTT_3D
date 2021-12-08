@@ -123,29 +123,33 @@ var x_new,y_new;
             mapObj.removeLayer(marker);
         });
         const btnClick = document.querySelector(".KT_KC");
-        btnClick.addEventListener("click", function(){
-      
-        
-            $.ajax({
-                type:'POST',
-                datatype:'JSON',
-                data:{
-                    x_new: x_new,
-                    y_new: y_new
-                },
-                url:'/',
-                success: function (result){
-              
-                    if(result.error==false){
-                        alert(result.message);
-                        console.log(result.data);
-                        location.reload();
-                    }else{
-                        alert("Xóa lỗi vui lòng thử lại");
-                    }
-                },
+        btnClick.addEventListener("click", function(event){
+          
+            event.preventDefault();
+            // $.ajax({
+            //     type:'GET',
+            //     datatype:'JSON',
+            //     data:{
+            //         x_new: x_new,
+            //         y_new: y_new
+            //     },
+            //     url:'/tinhtoan',
+            //     success: function (result){
+            //         console.log("Da qua lai ajax");
+            //         console.log(result);
+                   
+            //     },
 
+            // });
+            $.get("/tinhtoan",
+            {
+                x_new: x_new,
+                    y_new: y_new
+            },
+            function (data, status) {
+               console.log(data);
             });
+    //   });
         });
 
         }

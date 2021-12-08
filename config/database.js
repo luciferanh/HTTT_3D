@@ -67,7 +67,42 @@ function getdataHoDuongTinh(res) {
 
 
 }
+
+function tinhKC(res,x,y) {
+
+
+  sql.connect(configAnh, function (err) {
+
+    if (err){
+      console.log(err);
+    } ;
+    
+    var request = new sql.Request();
+
+    // query to the database and get the records
+    request.query(` DECLARE @g geography; 
+                     SET @g = geography::Point(${x},${y}, 4326);
+                     SELECT TOP (3) H.ID,@g.STDistance(H.Toa_do) as KC
+                      FROM [HoDuongTinh] H
+                      ORDER BY KC
+
+    `
+    , function (err, recordset) {
+ 
+      if (err) console.log(err)
+
+      console.log(recordset.recordset);
+      // send records as a response
+      return res.send(recordset);
+    
+
+    });
+  });
+
+
+}
 module.exports = {
   getdataHoDuongTinh: getdataHoDuongTinh,
+  tinhKC:tinhKC,
 };
 
