@@ -133,11 +133,11 @@ var x_new,y_new;
                     x_new: x_new,
                     y_new: y_new
                 },
-                url:'/',
+                url:'/tinhtoan',
                 success: function (result){
               
                     if(result.error==false){
-                        alert(result.message);
+                  
                         console.log(result.data);
                         location.reload();
                     }else{

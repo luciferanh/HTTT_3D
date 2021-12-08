@@ -4,7 +4,7 @@ function route(app){
         app.use('/',HomeRouter);
         app.use('/store',HomeRouter);
         app.use('/login',HomeRouter);
-
+        app.use('/tinhtoan',HomeRouter);
         app.use('/phongtoa',HomeRouter);
    
 }

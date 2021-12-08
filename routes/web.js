@@ -7,5 +7,5 @@ router.get('/store',HomeController.store);
 router.get('/login',UserController.login);
 router.get('/phongtoa',HomeController.phongtoa);
 
-router.post('/',HomeController.check_khoang_cach);
+router.get('/tinhtoan',HomeController.check_khoang_cach);
 module.exports =router;
