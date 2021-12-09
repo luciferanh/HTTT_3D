@@ -97,7 +97,7 @@ geojson = L.geoJson(uitData, {
 
 map.attributionControl.addAttribution('Vùng những người bị dương tính với covid19 <a href ="">COVID19 DATA</a>');
 
-var legend = L.control({ position: 'bottomright' });
+var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (map) {
 
@@ -114,3 +114,5 @@ legend.onAdd = function (map) {
 
     return div;
 };
+
+legend.addTo(map);
