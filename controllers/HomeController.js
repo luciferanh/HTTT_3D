@@ -9,7 +9,12 @@ class HomeController {
 
           database.getdataHoDuongTinh(res);
     }
+    dataphongtoa(req, res) {
+        console.log("dang dataphong");
+        database.getdataPhongToa(res);
+    }
     phongtoa(req, res){
+       
         res.render('phongtoa');
     }
     check_khoang_cach(req, res){

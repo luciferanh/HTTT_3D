@@ -47,7 +47,7 @@ const configThanh = {
 function getdataHoDuongTinh(res) {
  
     
-    sql.connect(configAn, function (err) {
+    sql.connect(configAnh, function (err) {
 
       if (err){
         console.log(err);
@@ -101,8 +101,30 @@ function tinhKC(res,x,y) {
 
 
 }
+function getdataPhongToa(res){
+  
+  sql.connect(configAnh, function (err) {
+
+    if (err){
+      console.log(err);
+    } ;
+
+    var request = new sql.Request();
+
+    // query to the database and get the records
+    request.query('select * from VungPhongToa', function (err, recordset) {
+ 
+      if (err) console.log(err)
+      // send records as a response
+     return  res.send(recordset);
+
+    });
+  });
+
+}
 module.exports = {
   getdataHoDuongTinh: getdataHoDuongTinh,
   tinhKC:tinhKC,
+  getdataPhongToa: getdataPhongToa
 };
 

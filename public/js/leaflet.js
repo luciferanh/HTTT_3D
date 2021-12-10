@@ -103,7 +103,7 @@ var x_new,y_new;
             .addTo(mapObj)
             .bindPopup(FindDistance+buttonRemove);
 
-        // event remove marker
+        // event remove  and add marker
         markerClick.on("popupopen", ClickMarker);
 
         // event draged marker
