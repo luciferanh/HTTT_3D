@@ -47,7 +47,7 @@ const configThanh = {
 function getdataHoDuongTinh(res) {
  
     
-    sql.connect(configAnh, function (err) {
+    sql.connect(configAn, function (err) {
 
       if (err){
         console.log(err);
@@ -71,7 +71,7 @@ function getdataHoDuongTinh(res) {
 function tinhKC(res,x,y) {
 
 
-  sql.connect(configAnh, function (err) {
+  sql.connect(configAn, function (err) {
 
     if (err){
       console.log(err);
@@ -103,7 +103,7 @@ function tinhKC(res,x,y) {
 }
 function getdataPhongToa(res){
   
-  sql.connect(configAnh, function (err) {
+  sql.connect(configAn, function (err) {
 
     if (err){
       console.log(err);
