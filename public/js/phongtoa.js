@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+$.get("/dataphongtoa", function (data) {
+    DatabaseState= Object.values(data)[1];
+    console.log(DatabaseState)
+>>>>>>> 02c428d74710827a2e60e7e882b5663c06e717e9
 
 $.get("/dataphongtoa", function (data) {
     //tạo dữ liệu
