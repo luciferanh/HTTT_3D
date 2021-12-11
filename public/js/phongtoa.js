@@ -1,5 +1,5 @@
-$.get("/store", function (data) {
-    DatabaseState= Object.values(data);
+$.get("/dataphongtoa", function (data) {
+    DatabaseState= Object.values(data)[1];
     console.log(DatabaseState)
 
     var map = L.map('map').setView([10.869596, 106.803244], 14);// set view và zoom mặt định
