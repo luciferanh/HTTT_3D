@@ -44,10 +44,13 @@ const configThanh = {
 
 };
 
+// ---------------------------------------------- Đổi DB ở đây ----------------------------------------------------------------
+const config_db = configAnh;
+// ---------------------------------------------- Đổi DB ở đây ----------------------------------------------------------------
 function getdataHoDuongTinh(res) {
  
     
-    sql.connect(configAn, function (err) {
+    sql.connect(config_db, function (err) {
 
       if (err){
         console.log(err);
@@ -71,7 +74,7 @@ function getdataHoDuongTinh(res) {
 function tinhKC(res,x,y) {
 
 
-  sql.connect(configAn, function (err) {
+  sql.connect(config_db, function (err) {
 
     if (err){
       console.log(err);
@@ -103,7 +106,7 @@ function tinhKC(res,x,y) {
 }
 function getdataPhongToa(res){
   
-  sql.connect(configAn, function (err) {
+  sql.connect(config_db, function (err) {
 
     if (err){
       console.log(err);
