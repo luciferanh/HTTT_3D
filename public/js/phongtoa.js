@@ -1,37 +1,37 @@
-$.get("/dataphongtoa", function(data) {
-    uitData= Object.values(data)[1];
-    var mapObj = null;
-    
+$.get("/store", function (data) {
+    DatabaseState= Object.values(data);
+    console.log(DatabaseState)
+
     var map = L.map('map').setView([10.869596, 106.803244], 14);// set view và zoom mặt định
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-    
+
     var info = L.control();
-    
+
     info.onAdd = function (map) {
-            this._div = L.DomUtil.create('div', 'info'); // tạo tab div để hiển thị thông tin
-            this.update();
-            return this._div;
-        };
-    
-    info.update = function (props) {
-        this._div.innerHTML = '<h4> Vùng những người dương tính với Covid19 </h4>' + (props ? 
-            '<b> Vùng:'+ props.name+ '  </b><br><b>' + props.density + ' người dương tính.'
-            :'Đưa chuột lên vùng để xem thêm thông tin');
+        this._div = L.DomUtil.create('div', 'info'); // tạo tab div để hiển thị thông tin
+        this.update();
+        return this._div;
     };
-    
+
+    info.update = function (props) {
+        this._div.innerHTML = '<h4> Vùng những người dương tính với Covid19 </h4>' + (props ?
+            '<b> Vùng:' + props.name + '  </b><br><b>' + props.density + ' người dương tính.'
+            : 'Đưa chuột lên vùng để xem thêm thông tin');
+    };
+
     info.addTo(map);
-    
+
     //Tạo màu cho từng số lượng người trong vùng dịch
     function getColor(d) {
-        return  d > 500 ? '#FF0000' :
-                d > 100 ? '#FF3300' :
+        return d > 500 ? '#FF0000' :
+            d > 100 ? '#FF3300' :
                 d > 10 ? '#FFCC00' :
-                '#00FF00';
+                    '#00FF00';
     }
-    
+
     function style(feature) {
         return {
             weight: 2,
@@ -43,7 +43,7 @@ $.get("/dataphongtoa", function(data) {
         };
     }
     //Kẻ viền ngoài của từng feature
-        function highlightFeature(e) {
+    function highlightFeature(e) {
         var layer = e.target;
         layer.setStyle({
             weight: 5,
@@ -51,25 +51,25 @@ $.get("/dataphongtoa", function(data) {
             dashArray: '',
             fillOpacity: 0.7
         });
-    
+
         if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
             layer.bringToFront();
         }
-    
+
         info.update(layer.feature.properties);
     }
-    
+
     var geojson;
-    
+
     function resetHighlight(e) {
         geojson.resetStyle(e.target);
         info.update();
     }
-    
+
     function zoomToFeature(e) {
         map.fitBounds(e.target.getBounds());
     }
-    
+
     function onEachFeature(feature, layer) {
         layer.on({
             mouseover: highlightFeature,
@@ -93,32 +93,31 @@ $.get("/dataphongtoa", function(data) {
     //         {"type":"Feature","id":"11","properties":{"name":"Bửu Hòa","density":2},"geometry":{"type":"Polygon","coordinates":[[[106.79684901,10.9127382],[106.80605626,10.92545394],[106.81028214,10.92797314],[106.82137508,10.92915864],[106.83035507,10.90589238],[106.83201524,10.90478089],[106.83102553,10.89872761],[106.82919924,10.89809994],[106.82618585,10.89863794],[106.82062216,10.89816966],[106.81709609,10.9013043],[106.80284492,10.90642401],[106.79684901,10.9127382]]]}}
     //     ]
     // };
-    
+
     geojson = L.geoJson(uitData, {
         style: style,
         onEachFeature: onEachFeature
     }).addTo(map);
-    
+
     map.attributionControl.addAttribution('Vùng những người bị dương tính với covid19 <a href ="">COVID19 DATA</a>');
-    
-    var legend = L.control({position: 'bottomright'});
-    
+
+    var legend = L.control({ position: 'bottomright' });
+
     legend.onAdd = function (map) {
-    
+
         var div = L.DomUtil.create('div', 'info legend'),
             grades = [0, 10, 100, 500],
             labels = [];
-    
+
         // loop through our density intervals and generate a label with a colored square for each interval
         for (var i = 0; i < grades.length; i++) {
             div.innerHTML +=
                 '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
                 grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
         }
-    
+
         return div;
     };
-    
-    legend.addTo(map);
 
+    legend.addTo(map);
 });

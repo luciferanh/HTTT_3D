@@ -1,5 +1,7 @@
 ﻿create database dialy
+GO
 use dialy
+GO
 create table Nguoi_dung (
 	ID int NOT NULL PRIMARY KEY,
 	LastName varchar(255),
@@ -33,6 +35,7 @@ Create table User_Ho(
 	CONSTRAINT FK_ND FOREIGN KEY (NguoiDungID) REFERENCES Nguoi_dung(ID),
 	CONSTRAINT FK_Ho FOREIGN KEY (HoID) REFERENCES HoDuongTinh(ID)
 )
+GO
 -- Thêm Nguoi Dung
 
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
@@ -50,39 +53,37 @@ VALUES ( 8,'Alan','Le Van',0732791682,10.879167493886937, 106.80718230611217,'KT
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
 VALUES ( 9,'Quy','Nguyen Van',0332791692,10.878077014753742, 106.80878198410016,'KTX khu A',22/05/2020,'duong tinh','BINH DUONG',geography::Point(10.878077014753742, 106.80878198410016, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
-VALUES ( 22,'Giau','Le Van',0333391612,10.86491719857306, 106.76366173290039,'Thu Duc',18/05/2020,'duong tinh','Ho Chi Minh',geography::Point(10.86491719857306, 106.76366173290039, 4326))
+VALUES ( 10,'Giau','Le Van',0333391612,10.86491719857306, 106.76366173290039,'Thu Duc',18/05/2020,'duong tinh','Ho Chi Minh',geography::Point(10.86491719857306, 106.76366173290039, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
-VALUES ( 23,'Sang','Nguyen',0364442672,10.859943922398136, 106.77147355951766,'Thu Duc',19/05/2020,'duong tinh','Ho Chi Minh',geography::Point(10.859943922398136, 106.77147355951766, 4326))
+VALUES ( 11,'Sang','Nguyen',0364442672,10.859943922398136, 106.77147355951766,'Thu Duc',19/05/2020,'duong tinh','Ho Chi Minh',geography::Point(10.859943922398136, 106.77147355951766, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
-VALUES ( 26,'Vinh','Le',0344441212,10.87107045949965, 106.77844040766355,'Thu Duc',21/05/2020,'duong tinh','Ho Chi Minh',geography::Point(10.87107045949965, 106.77844040766355, 4326))
+VALUES ( 12,'Vinh','Le',0344441212,10.87107045949965, 106.77844040766355,'Thu Duc',21/05/2020,'duong tinh','Ho Chi Minh',geography::Point(10.87107045949965, 106.77844040766355, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
-VALUES ( 25,'Hoa','Luy',0125551112, 10.864158568578794, 106.77902785338925,'Thu Duc',20/05/2020,'duong tinh','Ho Chi Minh',geography::Point( 10.864158568578794, 106.77902785338925, 4326))
+VALUES ( 13,'Hoa','Luy',0125551112, 10.864158568578794, 106.77902785338925,'Thu Duc',20/05/2020,'duong tinh','Ho Chi Minh',geography::Point( 10.864158568578794, 106.77902785338925, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
 VALUES ( 14,'Giau','Le Thuong',0316661612, 10.866392306931726, 106.78525802899426,'Thu Duc',18/05/2020,'duong tinh','Ho Chi Minh',geography::Point( 10.866392306931726, 106.78525802899426, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
 VALUES ( 15,'Sang','Le Nguyen Duc',0367772672,10.871154749864244, 106.77653938718642,'Thu Duc',19/05/2020,'duong tinh','Ho Chi Minh',geography::Point(10.871154749864244, 106.77653938718642, 4326))
 
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
-VALUES ( 17,'Hoa','Thuy',0122791999, 10.877160377034658, 106.8021906168956,'Thu Duc',20/05/2020,'duong tinh','BINH DUONG',geography::Point( 10.877160377034658, 106.8021906168956, 4326))
+VALUES ( 16,'Hoa','Thuy',0122791999, 10.877160377034658, 106.8021906168956,'Thu Duc',20/05/2020,'duong tinh','BINH DUONG',geography::Point( 10.877160377034658, 106.8021906168956, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
-VALUES ( 18,'Hoa','Duong Thi',0312791666,10.870227554543938, 106.79817236099483,'Thu Duc',18/05/2020,'duong tinh','BINH DUONG',geography::Point(10.870227554543938, 106.79817236099483, 4326))
+VALUES ( 17,'Hoa','Duong Thi',0312791666,10.870227554543938, 106.79817236099483,'Thu Duc',18/05/2020,'duong tinh','BINH DUONG',geography::Point(10.870227554543938, 106.79817236099483, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
-VALUES ( 24,'Sang','Le Nguyen Phuc',0362792555,10.869721810427496, 106.77095951103124,'Thu Duc',19/05/2020,'duong tinh','BINH DUONG',geography::Point(10.869721810427496, 106.77095951103124, 4326))
+VALUES ( 18,'Sang','Le Nguyen Phuc',0362792555,10.869721810427496, 106.77095951103124,'Thu Duc',19/05/2020,'duong tinh','BINH DUONG',geography::Point(10.869721810427496, 106.77095951103124, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
-VALUES ( 20,'Vinh','Lam Van',0342791444,10.87039613572559, 106.76932847030895,'Thu Duc',21/05/2020,'duong tinh','BINH DUONG',geography::Point(10.87039613572559, 106.76932847030895, 4326))
+VALUES ( 19,'Vinh','Lam Van',0342791444,10.87039613572559, 106.76932847030895,'Thu Duc',21/05/2020,'duong tinh','BINH DUONG',geography::Point(10.87039613572559, 106.76932847030895, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
-VALUES ( 21,'Hoa','Le Thu',0122791333, 10.86879461065435, 106.77482250221561,'Thu Duc',20/05/2020,'duong tinh','BINH DUONG',geography::Point( 10.86879461065435, 106.77482250221561, 4326))
+VALUES ( 20,'Hoa','Le Thu',0122791333, 10.86879461065435, 106.77482250221561,'Thu Duc',20/05/2020,'duong tinh','BINH DUONG',geography::Point( 10.86879461065435, 106.77482250221561, 4326))
 
 
-INSERT INTO Nguoi_dung ( ID,LastName,FirstName,MatKhau,SDT,x_diachi,y_diachi,DiaChi,tinhtrang,City,Toa_do) 
+INSERT INTO Nguoi_dung ( ID,LastName,FirstName,MatKhau,SDT,x,y,DiaChi,tinhtrang,City,Toa_do) 
 VALUES ( 21,'Hoa','Le Thu','123456',0122791333, 10.86879461065435, 106.77482250221561,'Thu Duc','duong tinh','BINH DUONG',geography::Point( 10.86879461065435, 106.77482250221561, 4326))
-
-INSERT INTO Nguoi_dung ( ID,LastName,FirstName,MatKhau,SDT,x_diachi,y_diachi,DiaChi,tinhtrang,City,Toa_do) 
-VALUES ( 24,'Sang','Le Nguyen Phuc','234567',0362792555,10.869721810427496, 106.77095951103124,'Thu Duc','duong tinh','BINH DUONG',geography::Point(10.869721810427496, 106.77095951103124, 4326))
-
-INSERT INTO Nguoi_dung ( ID,LastName,FirstName,MatKhau,SDT,x_diachi,y_diachi,DiaChi,tinhtrang,City,Toa_do) 
-VALUES (  18,'Hoa','Duong Thi','123456',0312791666,10.870227554543938, 106.79817236099483,'Thu Duc','duong tinh','BINH DUONG',geography::Point(10.870227554543938, 106.79817236099483, 4326))
-
+INSERT INTO Nguoi_dung ( ID,LastName,FirstName,MatKhau,SDT,x,y,DiaChi,tinhtrang,City,Toa_do) 
+VALUES ( 22,'Sang','Le Nguyen Phuc','234567',0362792555,10.869721810427496, 106.77095951103124,'Thu Duc','duong tinh','BINH DUONG',geography::Point(10.869721810427496, 106.77095951103124, 4326))
+INSERT INTO Nguoi_dung ( ID,LastName,FirstName,MatKhau,SDT,x,y,DiaChi,tinhtrang,City,Toa_do) 
+VALUES ( 23,'Hoa','Duong Thi','123456',0312791666,10.870227554543938, 106.79817236099483,'Thu Duc','duong tinh','BINH DUONG',geography::Point(10.870227554543938, 106.79817236099483, 4326))
+GO
 
 Create Table VungPhongToa
 (
@@ -92,7 +93,7 @@ Create Table VungPhongToa
     density int,
 	Poly geography ,
 )
-
+GO
 
 INSERT INTO VungPhongToa ( ID,nameVung,density,Poly) 
 VALUES ( 1,N'Làng Đại Học',20,geography::STGeomFromText('POLYGON((106.80376428 10.88587024 , 106.80376428 10.88578732 , 106.80093556 10.88329971 , 106.79650248 10.88139253 , 106.79320935 10.88027309 , 106.78632753 10.87981702 , 106.78219 10.86729558,106.79080282 10.86688095,106.79401152 10.86509805,106.79641805 10.86447611,106.79857125 10.8642688,106.80583305 10.869037,106.81360147 10.87948533,106.80376428 10.88587024))', 4326))
