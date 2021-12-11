@@ -1,3 +1,4 @@
+const { render } = require('express/lib/response');
 const database = require('../config/database.js');
 class HomeController {
     index(req, res) {
@@ -18,9 +19,14 @@ class HomeController {
         res.render('phongtoa');
     }
     check_khoang_cach(req, res){
+       console.log("check_khoang_cach");
+   
+        res.render('khoangcach');     
+    }
+    check_khoang_cach_data(req, res){
         console.log("dang kc");
-      console.log(req);
-        database.tinhKC(res,req.query.x_new, req.query.y_new);
+    
+        database.tinhKC(res,req.body.x_new, req.body.y_new);
      
     }
 

@@ -8,5 +8,5 @@ router.get('/dataphongtoa',HomeController.dataphongtoa);
 router.get('/login',UserController.login);
 router.get('/phongtoa',HomeController.phongtoa);
 router.get('/tinhtoan',HomeController.check_khoang_cach);
-
+router.post('/tinhtoan',HomeController.check_khoang_cach_data);
 module.exports =router;

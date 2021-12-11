@@ -126,23 +126,29 @@ $.get("/store", function (data) {
         const btnClick = document.querySelector(".KT_KC");
         btnClick.addEventListener("click", function (event) {
 
-            event.preventDefault();
-            // $.ajax({
-            //     type:'GET',
-            //     datatype:'JSON',
-            //     data:{
-            //         x_new: x_new,
-            //         y_new: y_new
-            //     },
-            //     url:'/tinhtoan',
-            //     success: function (result){
-            //         console.log("Da qua lai ajax");
-            //         console.log(result);
+            $.ajax({
+                type:'POST',
+                datatype:'JSON',
+               
+                data:{
+                    x_new: x_new,
+                    y_new: y_new
+                },
+                crossDomain: true,
+                url:'/tinhtoan',
+                success: function (result) {
+                    console.log(result);
+                    console.log("Đúng cmnr");
+                    alert(result);
+                
+                },
+                error: function(result){
+                    console.log(result);
+                    console.log("Sai cmnr");
+                }
 
-            //     },
-
-            // });
-            $.get("/tinhtoan",
+            });
+            $.post("/tinhtoan",
                 {
                     x_new: x_new,
                     y_new: y_new

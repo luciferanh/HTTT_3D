@@ -1,4 +1,5 @@
 const sql = require("mssql/msnodesqlv8");
+const path = require('path');
 const configAnh = {
   server: "localhost",
   user: "sa",
@@ -6,12 +7,7 @@ const configAnh = {
   server: "DESKTOP-OT7KKUK",
   database: "dialy",
   driver: "msnodesqlv8",
-  options: {
-    trustedconnection: true,
-    enableArithAbort: true,
-    instancename: "",
-  },
-
+  
 };
 const configAn = {
   server: "localhost",
@@ -43,11 +39,11 @@ const configThanh = {
   },
 
 };
-
+const config= configAnh;
 function getdataHoDuongTinh(res) {
  
     
-    sql.connect(configAn, function (err) {
+    sql.connect(config, function (err) {
 
       if (err){
         console.log(err);
@@ -60,6 +56,7 @@ function getdataHoDuongTinh(res) {
    
         if (err) console.log(err)
         // send records as a response
+        
        return  res.send(recordset);
 
       });
@@ -70,31 +67,34 @@ function getdataHoDuongTinh(res) {
 
 function tinhKC(res,x,y) {
 
-
-  sql.connect(configAn, function (err) {
-
+  sql.connect(configAnh, function (err) {
     if (err){
       console.log(err);
     } ;
-    
     var request = new sql.Request();
-
+  
     // query to the database and get the records
     request.query(` DECLARE @g geography; 
                      SET @g = geography::Point(${x},${y}, 4326);
-                     SELECT TOP (3) H.ID,@g.STDistance(H.Toa_do) as KC
+                     SELECT TOP (1) H.ID,@g.STDistance(H.Toa_do) as KC
                       FROM [HoDuongTinh] H
                       ORDER BY KC
-
     `
     , function (err, recordset) {
  
       if (err) console.log(err)
 
-      console.log(recordset.recordset);
+      console.log(recordset.recordset[0]);
+      var json_tao={
+        "ID": recordset.recordset[0].ID,
+        "KC": recordset.recordset[0].KC
+      };
       // send records as a response
-      return res.send(recordset);
-    
+      res.setHeader('Content-Type', 'application/json');
+
+      return res.json(JSON.stringify(json_tao));
+
+
 
     });
   });
@@ -103,7 +103,7 @@ function tinhKC(res,x,y) {
 }
 function getdataPhongToa(res){
   
-  sql.connect(configAn, function (err) {
+  sql.connect(config, function (err) {
 
     if (err){
       console.log(err);
@@ -116,7 +116,7 @@ function getdataPhongToa(res){
  
       if (err) console.log(err)
       // send records as a response
-     return  res.send(recordset);
+     return  res.json(recordset);
 
     });
   });
