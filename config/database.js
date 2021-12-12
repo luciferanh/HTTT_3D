@@ -39,7 +39,7 @@ const configThanh = {
   },
 
 };
-const config= configAnh;
+const config= configThanh;
 function getdataHoDuongTinh(res) {
  
     
@@ -67,7 +67,7 @@ function getdataHoDuongTinh(res) {
 
 function tinhKC(res,x,y) {
 
-  sql.connect(configAnh, function (err) {
+  sql.connect(configThanh, function (err) {
     if (err){
       console.log(err);
     } ;
@@ -105,7 +105,7 @@ function tinhKC(res,x,y) {
 }
 function getdataPhongToa(res){
   
-  sql.connect(config, function (err) {
+  sql.connect(configThanh, function (err) {
 
     if (err){
       console.log(err);
