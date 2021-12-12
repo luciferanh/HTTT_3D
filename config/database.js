@@ -76,7 +76,7 @@ function tinhKC(res,x,y) {
     // query to the database and get the records
     request.query(` DECLARE @g geography; 
                      SET @g = geography::Point(${x},${y}, 4326);
-                     SELECT TOP (1) H.ID,@g.STDistance(H.Toa_do) as KC
+                     SELECT TOP (1) H.ID,H.x,H.y,@g.STDistance(H.Toa_do) as KC
                       FROM [HoDuongTinh] H
                       ORDER BY KC
     `
@@ -84,9 +84,11 @@ function tinhKC(res,x,y) {
  
       if (err) console.log(err)
 
-      console.log(recordset.recordset[0]);
+     
       var json_tao={
         "ID": recordset.recordset[0].ID,
+        "x":recordset.recordset[0].x,
+        "y":recordset.recordset[0].y,
         "KC": recordset.recordset[0].KC
       };
       // send records as a response

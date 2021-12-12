@@ -20,6 +20,7 @@ $.get("/store", function (data) {
     for (let index = 0; index < DatabaseDT.length; index++) {
 
         const element = [DatabaseDT[index].x, DatabaseDT[index].y];
+     
         var Duongtinh = element; // Toạ độ marker
         var option = {
             className: "map-popup-content",
@@ -29,7 +30,7 @@ $.get("/store", function (data) {
                                 <img src='https://tse1.mm.bing.net/th?id=OIP.3dDSNCoBmkd2mutd09WJwwHaHa&pid=Api' />
                             </div>
                             <div class='right'>
-                                <b>Ca thứ `+ index + `</b><br>Dương tính 
+                                <b>Ca thứ `+ DatabaseDT[index].ID + `</b><br><b>Ngày bị dương tính: ${DatabaseDT[index].NgayBiDuongTinh}</b>
                             </div>
                             <div class='clearfix'></div>`;
 
@@ -114,6 +115,10 @@ $.get("/store", function (data) {
     const buttonRemove =
         '<button type="button" class="remove">Xóa</button>';
 
+
+    //function for ajax
+
+
     // remove marker
     function ClickMarker() {
         const marker = this;
@@ -126,7 +131,7 @@ $.get("/store", function (data) {
         const btnClick = document.querySelector(".KT_KC");
         btnClick.addEventListener("click", function (event) {
 
-            $.ajax({
+        $.ajax({
                 type:'POST',
                 datatype:'JSON',
                
@@ -137,10 +142,20 @@ $.get("/store", function (data) {
                 crossDomain: true,
                 url:'/tinhtoan',
                 success: function (result) {
-                    console.log(result);
+              
                     console.log("Đúng cmnr");
-                    alert(result);
-                
+                    var data = JSON.parse(result);
+                    var latlngs = [
+                        [x_new, y_new],
+                        [data.x, data.y]
+                    ];
+                    var bindPopup_line='Khoảng cách:'+data.KC+' mét'
+                    var polyline = L.polyline(latlngs, {color: 'red'}).addTo(mapObj);
+                    mapObj.fitBounds(polyline.getBounds());
+                    
+                    console.log(data);
+                    return result;
+                  
                 },
                 error: function(result){
                     console.log(result);
@@ -148,14 +163,8 @@ $.get("/store", function (data) {
                 }
 
             });
-            $.post("/tinhtoan",
-                {
-                    x_new: x_new,
-                    y_new: y_new
-                },
-                function (data, status) {
-                    console.log(data);
-                });
+           
+
             //   });
         });
 
