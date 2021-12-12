@@ -150,7 +150,7 @@ $.get("/store", function (data) {
                         [data.x, data.y]
                     ];
                     var bindPopup_line='Khoảng cách:'+data.KC+' mét'
-                    var polyline = L.polyline(latlngs, {color: 'red'}).addTo(mapObj);
+                    var polyline = L.polyline(latlngs, {color: 'red'}).bindPopup(bindPopup_line).addTo(mapObj);
                     mapObj.fitBounds(polyline.getBounds());
                     
                     console.log(data);
