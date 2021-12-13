@@ -17,26 +17,26 @@ $.get("/dataphongtoa", function (data) {
     //     ]
     // };
     // console.log(uitData);
-    DatabaseState= Object.values(data)[1];
-   
-    array_freature=[];
-    for (var i=0; i<DatabaseState.length; i++){
-        
-        const element=DatabaseState[i];
-        var array_point=[]
-        for (var j=0; j<element.Poly.points.length; j++){
-            const point=element.Poly.points[j];
-            var GetPoint= [point.y, point.x];
+    DatabaseState = Object.values(data)[1];
+
+    array_freature = [];
+    for (var i = 0; i < DatabaseState.length; i++) {
+
+        const element = DatabaseState[i];
+        var array_point = [];
+        for (var j = 0; j < element.Poly.points.length; j++) {
+            const point = element.Poly.points[j];
+            var GetPoint = [point.y, point.x];
             array_point.push(GetPoint);
         }
-    
-        var create_json={"type":"Feature","id":element.ID,"properties":{"name":element.nameVung,"density":element.density},"geometry":{"type":"Polygon","coordinates":[array_point]}}
-  
+
+        var create_json = { "type": "Feature", "id": element.ID, "properties": { "name": element.nameVung, "density": element.density , "dientich": element.dientich}, "geometry": { "type": "Polygon", "coordinates": [array_point]} }
+
         array_freature.push(create_json);
     }
-    var  uitData={ "type": "FeatureCollection", "features":array_freature};
-   
-    var map = L.map('map').setView([10.869596, 106.803244], 14);// set view và zoom mặt định
+    var uitData = { "type": "FeatureCollection", "features": array_freature };
+
+    var map = L.map('map').setView([10.869596, 106.803244], 14);//set view và zoom mặc định
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -52,7 +52,7 @@ $.get("/dataphongtoa", function (data) {
 
     info.update = function (props) {
         this._div.innerHTML = '<h4> Vùng những người dương tính với Covid19 </h4>' + (props ?
-            '<b> Vùng:' + props.name + '  </b><br><b>' + props.density + ' người dương tính.'
+            '<b> Vùng:' + props.name + '</b><br><b>Diện Tích: '+ props.dientich +' m<sup>2</sup></b><br><b>' + props.density + ' người dương tính.</b>'
             : 'Đưa chuột lên vùng để xem thêm thông tin');
     };
 
@@ -60,10 +60,10 @@ $.get("/dataphongtoa", function (data) {
 
     //Tạo màu cho từng số lượng người trong vùng dịch
     function getColor(d) {
-        return d > 500 ? '#FF0000' :
-            d > 100 ? '#FF3300' :
+        return  d > 500 ? '#FF0000' :
+                d > 100 ? '#FF3300' :
                 d > 10 ? '#FFCC00' :
-                    '#00FF00';
+                         '#00FF00';
     }
 
     function style(feature) {

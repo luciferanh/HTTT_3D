@@ -7,7 +7,7 @@ const configAnh = {
   server: "DESKTOP-OT7KKUK",
   database: "dialy",
   driver: "msnodesqlv8",
-  
+
 };
 const configAn = {
   server: "localhost",
@@ -39,40 +39,44 @@ const configThanh = {
   },
 
 };
-const config= configAnh;
+/*==========================================
+---------- CHỈNH CONFIG TẠI ĐÂY ----------
+==========================================*/
+const config = configAn;
+
 function getdataHoDuongTinh(res) {
- 
-    
-    sql.connect(config, function (err) {
 
-      if (err){
-        console.log(err);
-      } ;
 
-      var request = new sql.Request();
+  sql.connect(config, function (err) {
 
-      // query to the database and get the records
-      request.query('select * from HoDuongTinh', function (err, recordset) {
-   
-        if (err) console.log(err)
-        // send records as a response
-        
-       return  res.send(recordset);
+    if (err) {
+      console.log(err);
+    };
 
-      });
+    var request = new sql.Request();
+
+    // query to the database and get the records
+    request.query('select * from HoDuongTinh', function (err, recordset) {
+
+      if (err) console.log(err)
+      // send records as a response
+
+      return res.send(recordset);
+
     });
+  });
 
 
 }
 
-function tinhKC(res,x,y) {
+function tinhKC(res, x, y) {
 
-  sql.connect(configAnh, function (err) {
-    if (err){
+  sql.connect(config, function (err) {
+    if (err) {
       console.log(err);
-    } ;
+    };
     var request = new sql.Request();
-  
+
     // query to the database and get the records
     request.query(` DECLARE @g geography; 
                      SET @g = geography::Point(${x},${y}, 4326);
@@ -80,45 +84,45 @@ function tinhKC(res,x,y) {
                       FROM [HoDuongTinh] H
                       ORDER BY KC
     `
-    , function (err, recordset) {
- 
-      if (err) console.log(err)
+      , function (err, recordset) {
 
-     
-      var json_tao={
-        "ID": recordset.recordset[0].ID,
-        "x":recordset.recordset[0].x,
-        "y":recordset.recordset[0].y,
-        "KC": recordset.recordset[0].KC
-      };
-      // send records as a response
-      res.setHeader('Content-Type', 'application/json');
-
-      return res.json(JSON.stringify(json_tao));
+        if (err) console.log(err)
 
 
+        var json_tao = {
+          "ID": recordset.recordset[0].ID,
+          "x": recordset.recordset[0].x,
+          "y": recordset.recordset[0].y,
+          "KC": recordset.recordset[0].KC
+        };
+        // send records as a response
+        res.setHeader('Content-Type', 'application/json');
 
-    });
+        return res.json(JSON.stringify(json_tao));
+
+
+
+      });
   });
 
 
 }
-function getdataPhongToa(res){
-  
+function getdataPhongToa(res) {
+
   sql.connect(config, function (err) {
 
-    if (err){
+    if (err) {
       console.log(err);
-    } ;
+    };
 
     var request = new sql.Request();
 
     // query to the database and get the records
     request.query('select * from VungPhongToa', function (err, recordset) {
- 
+
       if (err) console.log(err)
       // send records as a response
-     return  res.json(recordset);
+      return res.json(recordset);
 
     });
   });
@@ -126,7 +130,7 @@ function getdataPhongToa(res){
 }
 module.exports = {
   getdataHoDuongTinh: getdataHoDuongTinh,
-  tinhKC:tinhKC,
+  tinhKC: tinhKC,
   getdataPhongToa: getdataPhongToa
 };
 

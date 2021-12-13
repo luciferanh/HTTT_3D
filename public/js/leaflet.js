@@ -30,7 +30,7 @@ $.get("/store", function (data) {
                                 <img src='https://tse1.mm.bing.net/th?id=OIP.3dDSNCoBmkd2mutd09WJwwHaHa&pid=Api' />
                             </div>
                             <div class='right'>
-                                <b>Ca thứ `+ DatabaseDT[index].ID + `</b><br><b>Ngày bị dương tính: ${DatabaseDT[index].NgayBiDuongTinh}</b>
+                                <b>Ca thứ `+ DatabaseDT[index].ID + `</b><br><b>Ngày bị dương tính:<br> ${DatabaseDT[index].NgayBiDuongTinh}</b>
                             </div>
                             <div class='clearfix'></div>`;
 
