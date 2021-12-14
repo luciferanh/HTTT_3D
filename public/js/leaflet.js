@@ -25,12 +25,14 @@ $.get("/store", function (data) {
         var option = {
             className: "map-popup-content",
         };
+        let text = DatabaseDT[index].NgayBiDuongTinh;
+        let NgayBiDuongTinh = text.substring(0,10);
         // html cho popup
         var content = `<div class='left'>
                                 <img src='https://tse1.mm.bing.net/th?id=OIP.3dDSNCoBmkd2mutd09WJwwHaHa&pid=Api' />
                             </div>
                             <div class='right'>
-                                <b>Ca thứ `+ DatabaseDT[index].ID + `</b><br><b>Ngày bị dương tính:<br> ${DatabaseDT[index].NgayBiDuongTinh}</b>
+                                <b>Ca thứ `+ DatabaseDT[index].ID + `</b><br><b>Ngày bị dương tính:<br> ${NgayBiDuongTinh}</b>
                             </div>
                             <div class='clearfix'></div>`;
 
