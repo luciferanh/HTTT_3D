@@ -244,3 +244,11 @@ geography::STGeomFromText('POLYGON((106.64259102 10.75808376, 106.59559516 10.73
 (geography::STPolyFromText('POLYGON((106.64259102 10.75808376, 106.59559516 10.73499211, 106.63795085 10.73168801, 106.66156419 10.74887342, 106.64259102 10.75808376))', 4236)).STArea())
 
 GO
+
+select pt.nameVung,SUM(CAST(pt.Poly.STContains(dt.Toa_do) AS INT))  Soca
+from VungPhongToa pt, HoDuongTinh dt
+group by pt.nameVung
+
+
+select count(*)
+from HoDuongTinh
