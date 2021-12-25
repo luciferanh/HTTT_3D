@@ -236,7 +236,7 @@ VALUES ( 22,'Giau','Le Van',0333391612,10.86491719857306, 106.76366173290039,'Th
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) 
 VALUES ( 23,'Sang','Nguyen',0364442672,10.859943922398136, 106.77147355951766,'Thu Duc',19/05/2020,'duong tinh','Ho Chi Minh',geography::Point(10.859943922398136, 106.77147355951766, 4326))
 
----
+
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) VALUES ( 30,'Hoa','Le Phuoc',076901977, 10.856055388635511, 106.77336140074208,'Thu Duc',18/05/2021,'duong tinh','Ho Chi Minh',geography::Point( 10.856055388635511, 106.77336140074208, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) VALUES ( 31,'Sang','Le Minh',075804234, 10.850911008665765, 106.768468278575236,'Thu Duc',18/05/2021,'duong tinh','Ho Chi Minh',geography::Point( 10.850911008665765, 106.76846827857523, 4326))
 INSERT INTO HoDuongTinh ( ID,LastName,FirstName,SDT,x,y,DiaChi,NgayBiDuongTinh,tinhtrang,City,Toa_do) VALUES ( 32,'An','Le Nguyen',082414499, 10.859428704466618, 106.76391853340253,'Thu Duc',18/05/2021,'duong tinh','Ho Chi Minh',geography::Point( 10.859428704466618, 106.76391853340253, 4326))
