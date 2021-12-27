@@ -30,7 +30,7 @@ $.get("/dataphongtoa", function (data) {
             array_point.push(GetPoint);
         }
 
-        var create_json = { "type": "Feature", "id": element.ID, "properties": { "name": element.nameVung, "density": element.density , "dientich": element.dientich}, "geometry": { "type": "Polygon", "coordinates": [array_point]} }
+        var create_json = { "type": "Feature", "id": element.ID, "properties": { "name": element.nameVung, "density": element.Soca , "dientich": element.dientich}, "geometry": { "type": "Polygon", "coordinates": [array_point]} }
 
         array_freature.push(create_json);
     }

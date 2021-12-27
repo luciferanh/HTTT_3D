@@ -856,8 +856,23 @@ geography::STGeomFromText('POLYGON((106.64259102 10.75808376, 106.59559516 10.73
 
 GO
 
-/* 
-select pt.nameVung,SUM(CAST(pt.Poly.STContains(dt.Toa_do) AS INT))  Soca
+/*
+select pt.ID,pt.nameVung,SUM(CAST(pt.Poly.STContains(dt.Toa_do) AS INT)) as density, pt.dientich, pt.Poly
 from VungPhongToa pt, HoDuongTinh dt
-group by pt.nameVung
+group by pt.ID
+
+select *
+from VungPhongToa maintoa LEFT JOIN(select pt.ID,SUM(CAST(pt.Poly.STContains(dt.Toa_do) AS INT))  Soca from VungPhongToa pt, HoDuongTinh dt group by pt.ID) temp
+on maintoa.ID= temp.ID
+
 */
+
+Create Table VPToa_HDTinh
+(
+	ID_Phongtoa int NOT NULL,
+	ID_DuongTinh int NOT NULL,
+   CONSTRAINT PK_KhoaChinh PRIMARY KEY (ID_Phongtoa, ID_DuongTinh),
+	CONSTRAINT FK_PT FOREIGN KEY (ID_Phongtoa) REFERENCES VungPhongToa(ID),
+	CONSTRAINT FK_Ho FOREIGN KEY (ID_DuongTinh) REFERENCES HoDuongTinh(ID)
+)
+
