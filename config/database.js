@@ -42,7 +42,7 @@ const configThanh = {
 /*==========================================
 ---------- CHỈNH CONFIG TẠI ĐÂY ----------
 ==========================================*/
-const config = configAnh;
+const config = configThanh;
 
 function getdataHoDuongTinh(res) {
 
