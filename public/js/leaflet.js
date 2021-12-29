@@ -120,7 +120,7 @@ $.get("/store", function (data) {
 
     //function for ajax
 
-
+    var polyline;
     // remove marker
     function ClickMarker() {
         const marker = this;
@@ -129,6 +129,7 @@ $.get("/store", function (data) {
             const markerPlace = document.querySelector(".marker-position");
             markerPlace.textContent = "Goodbye marker 🌱";
             mapObj.removeLayer(marker);
+            mapObj.removeLayer(polyline);
         });
         const btnClick = document.querySelector(".KT_KC");
         btnClick.addEventListener("click", function (event) {
@@ -152,7 +153,7 @@ $.get("/store", function (data) {
                         [data.x, data.y]
                     ];
                     var bindPopup_line='Khoảng cách:'+data.KC+' mét'
-                    var polyline = L.polyline(latlngs, {color: 'red'}).bindPopup(bindPopup_line).addTo(mapObj);
+                     polyline = L.polyline(latlngs, {color: 'red'}).bindPopup(bindPopup_line).addTo(mapObj);
                     mapObj.fitBounds(polyline.getBounds());
                     
                     console.log(data);
