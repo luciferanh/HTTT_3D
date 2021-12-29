@@ -118,7 +118,7 @@ function getdataPhongToa(res) {
     var request = new sql.Request();
 
     // query to the database and get the records
-    request.query(`select *
+    request.query(`select *, maintoa.Poly.STArea() DienTich
     from VungPhongToa maintoa LEFT JOIN(select pt.ID,SUM(CAST(pt.Poly.STContains(dt.Toa_do) AS INT))  Soca from VungPhongToa pt, HoDuongTinh dt group by pt.ID) temp
     on maintoa.ID= temp.ID
     `, function (err, recordset) {
